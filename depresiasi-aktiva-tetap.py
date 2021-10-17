@@ -1,7 +1,7 @@
 def straightline():
     hp = float(input("Masukkan Harga Perolehan (dalam Rupiah): "))
     nilaiResidu = float(input("Masukkan Nilai Residu: "))
-    umur = float(input("Masukkan Umur Ekonomis: "))
+    umur = float(input("Masukkan Umur Ekonomis (dalam tahun): "))
     depresiasi = (hp - nilaiResidu) / umur
     print("Hasil depresiasi menggunakan metode garis lurus adalah = Rp." + str(depresiasi))
     pilihan()
@@ -14,7 +14,7 @@ def servicehours():
         input("Masukkan taksiran waktu yang dapat digunakan mesin (dalam jam): "))
     depresiasi = (hp - nilairesidu) / jamjasa
     totalwaktu = float(
-        input("Jumlah waktu yang telah digunakan mesin pada akhir periode: "))
+        input("Jumlah waktu yang telah digunakan mesin pada akhir periode (dalam jam): "))
     jml = depresiasi * totalwaktu
     print("Hasil nilai depresiasi menggunakan metode jam jasa adalah = Rp." + str(jml))
     pilihan()
@@ -24,7 +24,7 @@ def productiveoutput():
     hp = float(input("Masukkan Harga Perolehan (dalam Rupiah): "))
     nilairesidu = float(input("Masukkan Nilai Residu: "))
     hslproduksi = float(
-        input("Masukkan taksiran hasil produksi yang dapat dilakukan oleh mesin (dalam jam): "))
+        input("Masukkan taksiran hasil produksi yang dapat dilakukan oleh mesin: "))
     depresiasi = (hp - nilairesidu) / hslproduksi
     hasil = float(input("Jumlah unit produk yang dihasilkan mesin: "))
     total = depresiasi * hasil
@@ -44,7 +44,18 @@ def sumofyears():
     pilihan()
 
 
+def pilihan():
+    print()
+    lanjut = (input("Apakah akan lanjut? (y/t) : "))
+    if lanjut == "y":
+        return main()
+    else:
+        print("Program telah berhenti")
+        exit()
+
 # MAIN
+
+
 def main():
     print("------------------------------------------")
     print("Program Menghitung Penyusutan Aktiva Tetap")
@@ -66,19 +77,10 @@ def main():
     elif pilih == 4:
         sumofyears()
     elif pilih == 5:
+        print("Program telah berhenti")
         exit()
     else:
         print("error!")
-
-
-def pilihan():
-    print()
-    lanjut = (input("Apakah akan lanjut? (y/t) : "))
-    if lanjut == "y":
-        return main()
-    else:
-        print("Program telah berhenti")
-        exit()
 
 
 main()
